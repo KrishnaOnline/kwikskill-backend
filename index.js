@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
     cors({
-        origin: process.env.FRONTEND_URL,
+        origin: 'https://kwikskill-by-kkv.vercel.app/',
         credentials: true,
     })
 );

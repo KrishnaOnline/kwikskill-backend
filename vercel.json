@@ -1,6 +1,5 @@
 {
     "version": 2,
-    "name": "kwikskill-by-kkv",
     "builds": [
         {
             "src": "index.js",
