@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
     cors({
-        origin: "https://kwikskill-by-kkv.vercel.app",
+        origin: ["https://kwikskill-by-kkv.vercel.app"],
         credentials: true,
     })
 );
@@ -31,6 +31,11 @@ app.use(
         tempFileDir: '/tmp',
     })
 );
+const logReqs = (req, res, next) => {
+    console.log(`[${new Date().toLocaleString()}] Request made to: ${req.originalUrl}`);
+    next();
+}
+app.use(logReqs);
 
 cloudnairyConnect();
 
