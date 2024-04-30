@@ -139,12 +139,15 @@ exports.login = async (req, res) => {
                 expires: new Date(Date.now() + 3*24*60*60*1000),
                 httpOnly: true,
             }
-            return res.cookie("token", token, options).status(200).json({
-                success: true,
-                token,
-                user,
-                message: "User LoggedIn Successfully",
-            })
+            return res
+                .cookie("token", token, options) // .header("Authorization", "Bearer "+token)
+                .status(200)
+                .json({
+                    success: true,
+                    token,
+                    user,
+                    message: "User LoggedIn Successfully",
+                })
         } else {
             return res.status(401).json({
                 success: false,
