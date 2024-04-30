@@ -31,6 +31,11 @@ app.use(
         tempFileDir: '/tmp',
     })
 );
+const logReqs = (req, res, next) => {
+    console.log(`[${new Date().toLocaleString()}] Request made to: ${req.originalUrl}`);
+    next();
+}
+app.use(logReqs);
 
 cloudnairyConnect();
 
